@@ -22,4 +22,3 @@ python run_treepl2.py 100_trees ${SLURM_ARRAY_TASK_ID} step2.1_output
 python run_treepl2.py 100_trees ${SLURM_ARRAY_TASK_ID} step2.2_output
 python run_treepl2.py 100_trees ${SLURM_ARRAY_TASK_ID} step2.3_output
 python run_treepl3.py 100_trees ${SLURM_ARRAY_TASK_ID} step3_output
-rm *.out
