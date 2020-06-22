@@ -83,6 +83,7 @@ sbatch submit_array.sbatch
 ## 5. Summarize trees with treeAnnotator
 ```
 cd step3_output
+cat *.tre > treeall_dated.tre
 module load beast
 treeannotator
 ```
