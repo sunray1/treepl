@@ -23,7 +23,7 @@ cat RAxML_result.ML* > RAxML_bootstrap.bootstrap_all.tre
 ```
 ## 3. Reroot all trees using R
 
-**Testing this now: Not sure if there is a diff between R and FigTree rooting**
+**Note: Testing this now: Not sure if there is a diff between R and FigTree rooting**
 
 Need:
 
