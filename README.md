@@ -3,7 +3,9 @@
 Need:
 * Alignment
 * Partitioning Scheme (if using)
+```
 raxmlHPC-PTHREADS-SSE3 -f j -m GTRGAMMAI -s FcC_supermatrix_round1remove_synsfixed_round3remove.fa -q partitioning_scheme.txt -n ML${SLURM_ARRAY_TASK_ID} -T 16 -# 100 -b $RANDOM
+```
 ## 2. Add branch lengths to tree given bootstrap alignment
 
 Need:
