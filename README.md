@@ -42,6 +42,13 @@ tip_sub <- tips[grep(labels[1], tips)]
 rootedtree <- root(tree, outgroup = tip_sub, resolve.root = TRUE)
 write.tree(rootedtree, file = "RAxML_bootstrap.bootstrap_all_rooted.tre")
 ```
+
+To do this in phyx (seems better):
+```
+module load gcc/8.2.0
+module load phyx/20190403
+pxrr -t RAxML_bootstrap.bootstrap_all.tre -g GCA_0003309851_Plutella_xylostella -o RAxML_bootstrap.bootstrap_all_rooted.tre
+```
 ## 4. Run TreePL on each tree
 
 Need:
