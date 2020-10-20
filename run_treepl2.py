@@ -26,24 +26,25 @@ ind_tree_file = tree_files[int(num)-1]
 ind_tree_suff = ind_tree_file.split("tree")[1].split(".")[0]
 
 #make tree directory and cp config file over
-os.system(mkdircommd % (outdir, ind_tree_suff))
-os.system(cpconfig % (outdir, ind_tree_suff))
+if os.path.exists(outdir + "/tree" + ind_tree_suff + ".out") == False:
+	os.system(mkdircommd % (outdir, ind_tree_suff))
+	os.system(cpconfig % (outdir, ind_tree_suff))
 
-#edit config file
-os.system(sandr % ("treefile =", "treefile = ..\/..\/" + tree_directory + "\/" + ind_tree_file, outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
-os.system(sandr % ("outfile =", "outfile = doesntmatter.tre", outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
-#get prime lines
-firstline = os.popen(getfirstline % ("step1_output/tree" + ind_tree_suff + "_step1.out")).read()
-startnum = int(firstline.split(":")[0]) + 1
-lastline = os.popen(getlastline % ("step1_output/tree" + ind_tree_suff + "_step1.out")).read()
-endnum = lastline.split()[0]
+	#edit config file
+	os.system(sandr % ("treefile =", "treefile = ..\/..\/" + tree_directory + "\/" + ind_tree_file, outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
+	os.system(sandr % ("outfile =", "outfile = doesntmatter.tre", outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
+	#get prime lines
+	firstline = os.popen(getfirstline % ("step1_output/tree" + ind_tree_suff + "_step1.out")).read()
+	startnum = int(firstline.split(":")[0]) + 1
+	lastline = os.popen(getlastline % ("step1_output/tree" + ind_tree_suff + "_step1.out")).read()
+	endnum = lastline.split()[0]
 
-primeadd = os.popen(getlinestoadd % (str(startnum), endnum, "step1_output/tree" + ind_tree_suff + "_step1.out"))
-for i in primeadd:
-	os.system(sandr_first % ("# ", "# ", i.strip(), outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
+	primeadd = os.popen(getlinestoadd % (str(startnum), endnum, "step1_output/tree" + ind_tree_suff + "_step1.out"))
+	for i in primeadd:
+		os.system(sandr_first % ("# ", "# ", i.strip(), outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
 
-#runtreepl
-os.chdir(outdir + "/" + ind_tree_suff)
+	#runtreepl
+	os.chdir(outdir + "/" + ind_tree_suff)
 
-os.system(runtreepl % ("treepl_step2.config"))
-os.system(mvcmnd % ("cv.out", "../tree" + ind_tree_suff + ".out"))
+	os.system(runtreepl % ("treepl_step2.config"))
+	os.system(mvcmnd % ("cv.out", "../tree" + ind_tree_suff + ".out"))
