@@ -9,7 +9,7 @@ raxmlHPC-PTHREADS-SSE3 -f j -m GTRGAMMAI -s FcC_supermatrix_round1remove_synsfix
 ## 2. Add branch lengths to tree given bootstrap alignment
 
 Need:
- * Tree without branch lengths (final tree topology)
+ * Tree with arbitrary branch lengths (final tree topology)
  * Alignments from Step 1
  
  I used an array to run 10 runs of 10 trees in parallel on the cluster
