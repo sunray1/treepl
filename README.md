@@ -3,6 +3,22 @@
 Need:
 * Alignment
 * Partitioning Scheme (if using)
+
+-f j: Command to create bootstrapped alignment files
+
+-m: Model (is not used here, but is required to let command run)
+
+-s: Alignment
+
+-q: Partition file (RAxML cannot use different models per partition, but will infer different rates per partition)
+
+-b: seed
+
+-#: Number of replicates
+
+-T: Number of threads to use
+
+
 ```
 raxmlHPC-PTHREADS-SSE3 -f j -m GTRGAMMAI -s FcC_supermatrix_round1remove_synsfixed_round3remove.fa -q partitioning_scheme.txt -n ML${SLURM_ARRAY_TASK_ID} -T 16 -# 100 -b $RANDOM
 ```
