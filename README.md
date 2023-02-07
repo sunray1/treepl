@@ -29,6 +29,12 @@ Need:
  * Tree with arbitrary branch lengths (final tree topology)
  * Alignments from Step 1
  
+ If you have a tree with branch lengths or bootstraps you can use the following command to remove numbers, colons and periods from your file:
+ ```
+ sed -r 's/[0-9:.]//g' input.tre > output_topo.tre
+```
+ 
+ 
  I used an array to run 10 runs of 10 trees in parallel on the cluster
 ```
 #SBATCH --array=0-9
