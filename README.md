@@ -41,7 +41,7 @@ Need:
 
 for i in {1..10};
 do TASK=$(expr $i + ${SLURM_ARRAY_TASK_ID} \* 10 - 1);
-raxmlHPC-PTHREADS-SSE3 -f e -t tree7_ntdegen_6part.iqtree_rooted_topology.tre -m GTRGAMMAI -s out.NTDegen.fasta.reduced.BS$TASK -q best_scheme.txt.reduced.BS$TASK -n ML$TASK -T 16;
+raxmlHPC-PTHREADS-SSE3 -f e -t $Topology.tre -m GTRGAMMAI -s bootstrap.trees.BS$TASK -q bootstrap.partitions.BS$TASK -n ML$TASK -T 16;
 done
 
 cat RAxML_result.ML* > RAxML_bootstrap.bootstrap_all.tre
