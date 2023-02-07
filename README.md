@@ -12,15 +12,16 @@ Need:
 
 -q: Partition file (RAxML cannot use different models per partition, but will infer different rates per partition)
 
+-n: name appended to output files
+
 -b: seed
 
 -#: Number of replicates
 
 -T: Number of threads to use
 
-
 ```
-raxmlHPC-PTHREADS-SSE3 -f j -m GTRGAMMAI -s FcC_supermatrix_round1remove_synsfixed_round3remove.fa -q partitioning_scheme.txt -n ML${SLURM_ARRAY_TASK_ID} -T 16 -# 100 -b $RANDOM
+raxmlHPC-PTHREADS-SSE3 -f j -m GTRGAMMAI -s $Alignment_file -q $Partition_file -n BS -T $Num_of_Threads -# 100 -b $RANDOM
 ```
 ## 2. Add branch lengths to tree given bootstrap alignment
 
