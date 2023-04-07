@@ -41,7 +41,7 @@ if os.path.exists(outdir + "/tree" + ind_tree_suff + ".out") == False:
 
 	primeadd = os.popen(getlinestoadd % (str(startnum), endnum, "step1_output/tree" + ind_tree_suff + "_step1.out"))
 	for i in primeadd:
-		os.system(sandr_first % ("# ", "# ", i.strip(), outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
+		os.system(sandr_first % ("#|", "#|", i.strip(), outdir + "/" + ind_tree_suff + "/" + "treepl_step2.config"))
 
 	#runtreepl
 	os.chdir(outdir + "/" + ind_tree_suff)
